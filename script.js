@@ -10,3 +10,22 @@ function getComputerChoice() {
     return "Scissor";
   }
 }
+
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection === undefined || computerSelection === undefined) {
+    console.log("Please choose between Rock, Paper, or Scissor.")
+    return null;
+  }
+  // make player and computer selection case insensitive
+  playerSelection = playerSelection.toUpperCase();
+  computerSelection = computerSelection.toUpperCase();
+
+  // define rules to determine winner
+  // starting with rock
+  let result = `User: ${playerSelection}\nComputer: ${computerSelection}\nResult: `;
+
+  // draw if both are draw
+  if (playerSelection === "ROCK" && computerSelection === "ROCK") {
+    return result.concat('Tie');
+  }
+}
