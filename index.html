@@ -4,24 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jangken!</title>
-  <script src="script.js"></script>
   <style>
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 28px;
+      height: 100vh;
     }
-
-    .stupidd {
-      text-decoration: line-through;
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
     }
   </style>
+  <script src="script.js" async></script>
 </head>
 <body>
-  <h1>Hello, dear player!</h1>
-  <h4>I have made a <span class="stupidd">simple and stupid</span> Rock Paper Scissor game.<br>
-  In order to play, just clone a copy of the repository in your local machine, open the directory<br>
-  using VS Code, run the HTML file using Live server or whatever you want to use, then open console (CTRL + J), then reload browser.</h3>
-
-  <h4>ACTUALLY NVM LMAO. No need to do allat above if it's hosted by Github T_T. MB guys! Just open console to play and reload to play again!</h4>
+  <div class="container">
+    <button class="rock">Rock</button>
+    <button class="paper">Paper</button>
+    <button class="scissor">Scissor</button>
+  </div>
 </body>
 </html>
