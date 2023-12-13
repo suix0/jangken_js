@@ -6,19 +6,78 @@
   <title>Jangken!</title>
   <style>
     body {
+      margin: 0;
       height: 100vh;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      background-color: #ECF4D6;
+    } 
+
+    h2 {
+      display: flex;
+      justify-content: center;
+      margin: 0;
     }
-    .container {
+
+    .header {
+      display: flex;
+      justify-content: center;
+      background-color: #9AD0C2;
+    }
+
+    .header h1 {
+      color: #265073;
+    }
+
+    .top {
+      display: flex;
+      justify-content: center;
+    }
+
+    .player {
+      margin-right: auto;
+    }
+
+    .computer {
+      margin-left: auto;
+    }
+    
+    .selection {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 6px;
+      margin: 0px 0px;
     }
+
+    
+
   </style>
   <script src="script.js" async></script>
 </head>
 <body>
-  <div class="container">
+  <div class="header">
+    <h1>Rock, Paper, Scissor</h1>
+  </div>
+
+  <div class="top">
+
+    <div class="player">
+      <h2>You</h2>
+    </div>
+
+    <h2>First to score 5 wins!</h2>
+
+    <div class="computer">
+      <h2>Computer</h2>
+    </div>
+    
+  </div>
+
+
+
+
+
+  <div class="selection">
     <button class="rock">Rock</button>
     <button class="paper">Paper</button>
     <button class="scissor">Scissor</button>
