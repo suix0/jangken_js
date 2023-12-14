@@ -81,6 +81,16 @@
       margin: 32px;
     }
 
+    .announcement {
+      display: flex;
+      justify-content: center;
+    }
+
+    .announcement-container p {
+      display: flex;
+      justify-content: center;
+    }
+
     button {
       border: 0;
       color: #265073;
@@ -107,7 +117,7 @@
         <h3>You</h3>
         <div class="player score">
           <h3 class="playerChoice"></h3>
-          <p></p>
+          <p class="playerScore"></p>
         </div>
       </div>
 
@@ -115,7 +125,7 @@
         <h3>Computer</h3>
         <div class="computer score">
           <h3 class="computerChoice"></h3>
-          <p></p>
+          <p class="computerScore"></p>
         </div>
       </div>
 
@@ -127,6 +137,10 @@
     <button class="rock">Rock</button>
     <button class="paper">Paper</button>
     <button class="scissor">Scissor</button>
+  </div>
+
+  <div class="announcement-container">
+    <h1 class="announcement"></h1>
   </div>
 </body>
 </html>
