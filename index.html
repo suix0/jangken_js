@@ -6,22 +6,141 @@
   <title>Jangken!</title>
   <style>
     body {
+      margin: 0;
       height: 100vh;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      background-color: #ECF4D6;
+    } 
+
+    h2 {
+      display: flex;
+      justify-content: center;
     }
-    .container {
+
+    .header {
+      display: flex;
+      justify-content: center;
+      background-color: #9AD0C2;
+    }
+
+    .header h1 {
+      color: #265073;
+    }
+
+    .body {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .status {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .player-status,
+    .computer-status {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100px;
+    }
+
+    .player-status h3,
+    .computer-status h3 {
+      justify-content: center;
+    }
+
+
+    .score {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      border: 2px solid #265073;
+      width: 100px;
+      height: 80px;
+      align-self: center;
+    }
+
+    .score p,
+    .score h3 {
+      margin: 0;
+    }
+
+    .score p {
+      font-size: 3em;
+    }
+  
+    .selection {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 6px;
+      gap: 12px;
+      margin: 32px;
     }
+
+    .announcement {
+      display: flex;
+      justify-content: center;
+    }
+
+    .announcement-container p {
+      display: flex;
+      justify-content: center;
+    }
+
+    button {
+      border: 0;
+      color: #265073;
+      background-color: #9AD0C2;
+      height: 28px;
+      width: 100px;
+      border-radius: 12px;
+    }
+
   </style>
   <script src="script.js" async></script>
 </head>
 <body>
-  <div class="container">
+  <div class="header">
+    <h1>Rock, Paper, Scissor</h1>
+  </div>
+
+  <div class="body">
+    <h2>First to 5 wins!</h2>
+
+    <div class="status">
+
+      <div class="player-status">
+        <h3>You</h3>
+        <div class="player score">
+          <h3 class="playerChoice"></h3>
+          <p class="playerScore"></p>
+        </div>
+      </div>
+
+      <div class="computer-status">
+        <h3>Computer</h3>
+        <div class="computer score">
+          <h3 class="computerChoice"></h3>
+          <p class="computerScore"></p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="selection">
     <button class="rock">Rock</button>
     <button class="paper">Paper</button>
     <button class="scissor">Scissor</button>
+  </div>
+
+  <div class="announcement-container">
+    <h1 class="announcement"></h1>
   </div>
 </body>
 </html>

@@ -11,44 +11,111 @@ function getComputerChoice() {
   }
 }
 
-function playRound(playerSelection, computerSelection) {
-  if (playerSelection === undefined || computerSelection === undefined) {
-    console.log("Please choose between Rock, Paper, or Scissor.")
-    return null;
+const playerChoice = document.querySelector('.playerChoice');
+const computerChoice = document.querySelector('.computerChoice');
+const playerScore = document.querySelector('.playerScore');
+const computerScore = document.querySelector('.computerScore');
+const announcement = document.querySelector('.announcement');
+const announcementContainer = document.querySelector('.announcement-container');
+
+function updateStatus(playerSelection, computerSelection) {
+  if (playerSelection === computerSelection) {
+    announcement.textContent = "Woops! That's a tie!";
   }
+
+  playerChoice.textContent = playerSelection;
+  computerChoice.textContent = computerSelection;
+}
+
+function wordsOfPraise() {
+  const words = ['Wow, keep at it!', "That's amazing!", "You're almost there in beating the computer!", "Nice one!", "You're good! Keep it up!"];
+  announcement.textContent = words[Math.floor(Math.random() * words.length)];
+}
+
+function wordsOfEncouragement() {
+  const words = ["It's okay! Try again!! :D", "the ROBOT just got LUCKY. try again!", "It's okay, don't give up!", "You can do it!"];
+  announcement.textContent = words[Math.floor(Math.random() * words.length)];
+}
+
+
+let pScore = 0;
+let cScore = 0;
+
+playerScore.textContent = pScore;
+computerScore.textContent = cScore;
+
+function playRound(playerSelection, computerSelection) {
   // make player and computer selection case insensitive
   playerSelection = playerSelection.toUpperCase();
   computerSelection = computerSelection.toUpperCase();
 
-  // define cases to determine winner
-  let result = `You: ${playerSelection}\nComputer: ${computerSelection}\nResult: `;
-
   // starting with cases when user picks ROCK
   if (playerSelection === "ROCK" && computerSelection === "ROCK") {
-    return result.concat('Tie');
+    updateStatus(playerSelection, computerSelection);
+
   } else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
-    return result.concat("Computer Win");
+    wordsOfEncouragement();
+    updateStatus(playerSelection, computerSelection);
+    cScore++;
+    computerScore.textContent = cScore;
   } else if (playerSelection === "ROCK" && computerSelection === "SCISSOR") {
-    return result.concat("You WIN");
+    wordsOfPraise();
+    updateStatus(playerSelection, computerSelection);
+    pScore++;
+    playerScore.textContent = pScore;
 
   // now check cases when user chooses PAPER
   } else if (playerSelection === "PAPER" && computerSelection === "PAPER") {
-    return result.concat("Tie");
+    updateStatus(playerSelection, computerSelection);
+
   } else if (playerSelection === "PAPER" && computerSelection === "ROCK") {
-    return result.concat("You WIN");
+    wordsOfPraise();
+    updateStatus(playerSelection, computerSelection);
+    pScore++;
+    playerScore.textContent = pScore;
+
   } else if (playerSelection === "PAPER" && computerSelection === "SCISSOR") {
-    return result.concat("Computer WIN");
+    wordsOfEncouragement();
+    updateStatus(playerSelection, computerSelection);
+    cScore++;
+    computerScore.textContent = cScore;
 
   // lastly, check cases for when user chooses SCISSOR
   } else if (playerSelection === "SCISSOR" && computerSelection === "SCISSOR") {
-    return result.concat("Tie");
+    updateStatus(playerSelection, computerSelection);
+
   } else if (playerSelection === "SCISSOR" && computerSelection === "PAPER") {
-    return result.concat("You WIN");
+    wordsOfPraise();
+    updateStatus(playerSelection, computerSelection);
+    pScore++;
+    playerScore.textContent = pScore;
+
   } else if (playerSelection === "SCISSOR" && computerSelection === "ROCK") {
-    return result.concat("Computer WIN");
+    wordsOfEncouragement();
+    updateStatus(playerSelection, computerSelection);
+    cScore++;
+    computerScore.textContent = cScore;
+
   } else {
     alert("Please enter a valid input.");
     return -1;
+  }
+
+  const para = document.createElement('p');
+  para.textContent = 'Please refresh to play again!';
+
+  if (pScore === 5 && cScore < 5) {
+    announcement.textContent = '';
+    announcement.textContent = 'You win! Great job!';
+    announcementContainer.appendChild(para);
+  } else if (pScore < 5 && cScore === 5) {
+    announcement.textContent = '';
+    announcement.textContent = "The computer win";
+    announcementContainer.appendChild(para);
+  } else if (pScore === 5 && cScore === 5) {
+    announcement = textContent = '';
+    announcement.textContent = "Wow. A tie :0";
+    announcementContainer.appendChild(para);
   }
 
 }
@@ -59,15 +126,15 @@ function game() {
   const scissor = document.querySelector('.scissor');
 
   rock.addEventListener('click', () => {
-    alert(playRound('rock', getComputerChoice()));
+    playRound('rock', getComputerChoice())
   });
 
   paper.addEventListener('click', () => {
-    alert(playRound('paper', getComputerChoice()));
+    playRound('paper', getComputerChoice());
   });
 
   scissor.addEventListener('click', () => {
-    alert(playRound('scissor', getComputerChoice()));
+    playRound('scissor', getComputerChoice());
   });
 }
 
